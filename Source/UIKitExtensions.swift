@@ -41,22 +41,30 @@ public extension UINavigationController {
             return
         }
         
-        let button = UIButton(frame: CGRectMake(0, 0, 40, 40))
-        button.accessibilityIdentifier = SideMenuController.preferences.interaction.menuButtonAccessibilityIdentifier
-        button.setImage(image, forState: UIControlState.Normal)
-        button.addTarget(sideMenuController, action: #selector(SideMenuController.toggle), forControlEvents: UIControlEvents.TouchUpInside)
+        let leftButton = UIButton(frame: CGRectMake(0, 0, 40, 40))
+        leftButton.accessibilityIdentifier = SideMenuController.preferences.interaction.menuButtonAccessibilityIdentifier
+        leftButton.setImage(image, forState: UIControlState.Normal)
+        leftButton.addTarget(sideMenuController, action: #selector(SideMenuController.toggleLeft), forControlEvents: UIControlEvents.TouchUpInside)
         
-        let item:UIBarButtonItem = UIBarButtonItem()
-        item.customView = button
+        let leftItem:UIBarButtonItem = UIBarButtonItem()
+        leftItem.customView = leftButton
         
-        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
-        spacer.width = -10
+        let leftSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
+        leftSpacer.width = -10
         
-        if SideMenuController.preferences.drawing.sidePanelPosition.isPositionedLeft {
-            self.topViewController?.navigationItem.leftBarButtonItems = [spacer, item]
-        }else{
-            self.topViewController?.navigationItem.rightBarButtonItems = [spacer, item]
-        }
+        let rightButton = UIButton(frame: CGRectMake(0, 0, 40, 40))
+        rightButton.accessibilityIdentifier = SideMenuController.preferences.interaction.menuButtonAccessibilityIdentifier
+        rightButton.setImage(image, forState: UIControlState.Normal)
+        rightButton.addTarget(sideMenuController, action: #selector(SideMenuController.toggleRight), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        let rightItem:UIBarButtonItem = UIBarButtonItem()
+        rightItem.customView = rightButton
+        
+        let rightSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
+        rightSpacer.width = -10
+        
+        self.topViewController?.navigationItem.leftBarButtonItems = [leftSpacer, leftItem]
+        self.topViewController?.navigationItem.rightBarButtonItems = [rightSpacer, rightItem]
     }
 }
 
