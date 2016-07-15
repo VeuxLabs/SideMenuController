@@ -318,12 +318,9 @@ public class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
             leftPanRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleCenterPanelPanFromLeft))
             leftPanRecognizer.delegate = self
             centerPanel.addGestureRecognizer(leftPanRecognizer)
-            centerPanel.addGestureRecognizer(leftPanRecognizer)
-            
             
             rightPanRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleCenterPanelPanFromRight))
             rightPanRecognizer.delegate = self
-            centerPanel.addGestureRecognizer(rightPanRecognizer)
             centerPanel.addGestureRecognizer(rightPanRecognizer)
         } else {
             
@@ -360,13 +357,13 @@ public class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
         handleLeftSwipe(.RightSide)
     }
     func handleSidePanelPanFromLeft(recognizer: UIPanGestureRecognizer){
-        handleSidePanelPan(recognizer, showingSide: sidePanelVisible)// .LeftSide)
+        handleSidePanelPan(recognizer, showingSide: sidePanelVisible)
     }
     func handleSidePanelPanFromRight(recognizer: UIPanGestureRecognizer){
-        handleSidePanelPan(recognizer, showingSide: sidePanelVisible)// .RightSide)
+        handleSidePanelPan(recognizer, showingSide: sidePanelVisible)
     }
     func handleCenterPanelPanFromLeft(recognizer: UIPanGestureRecognizer){
-        handleCenterPanelPan(recognizer, showingSide: sidePanelVisible)//.LeftSide)
+        handleCenterPanelPan(recognizer, showingSide: sidePanelVisible)
     }
     func handleCenterPanelPanFromRight(recognizer: UIPanGestureRecognizer){
         
@@ -424,7 +421,6 @@ public class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
         
         if !sidePanelPosition.isPositionedUnder {
             if display && centerPanelOverlay.superview == nil {
-                //TODO: Not sure about this insert subview below
                 centerPanelOverlay.alpha = 0
                 view.insertSubview(self.centerPanelOverlay, belowSubview: self.leftSidePanel)
             }else if !display {
@@ -491,7 +487,6 @@ public class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
         var duration = hidden ? _preferences.animating.hideDuration : _preferences.animating.reavealDuration
         
         if abs(flickVelocity) > 0 {
-            //TODO: Not sure about this left side panel
             let newDuration = NSTimeInterval(leftSidePanel.frame.size.width / abs(flickVelocity))
             flickVelocity = 0
             duration = min(newDuration, duration)
