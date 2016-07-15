@@ -52,7 +52,6 @@ public extension UINavigationController {
         let leftSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
         leftSpacer.width = -10
         
-        /////////////
         let rightButton = UIButton(frame: CGRectMake(0, 0, 40, 40))
         rightButton.accessibilityIdentifier = SideMenuController.preferences.interaction.menuButtonAccessibilityIdentifier
         rightButton.setImage(image, forState: UIControlState.Normal)
