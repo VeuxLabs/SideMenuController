@@ -48,10 +48,14 @@ class RootViewController: UIViewController {
         tabBarController.viewControllers = [nc1, nc2, nc3]
         
         // create the side controller
-        let sideController = UITableViewController()
+        let leftSideController = UITableViewController()
+        leftSideController.view.backgroundColor = UIColor.blueColor()
+        
+        let rightSideController = UITableViewController()
+        rightSideController.view.backgroundColor = UIColor.yellowColor()
         
         // embed the side and center controllers
-        sideMenuViewController.embed(sideViewController: sideController)
+        sideMenuViewController.embed(leftViewController: leftSideController, rightViewController: rightSideController)
         sideMenuViewController.embed(centerViewController: tabBarController)
         
         // add the menu button to each view controller embedded in the tab bar controller

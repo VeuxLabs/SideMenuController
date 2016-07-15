@@ -16,6 +16,7 @@
 		13A7580A1D12A32A004488DA /* SideMenuControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A758071D12A303004488DA /* SideMenuControllerTests.swift */; };
 		13A7580C1D12A33B004488DA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13A758061D12A303004488DA /* Info.plist */; };
 		13A7586D1D12A61B004488DA /* SideContainmentSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A7586C1D12A61B004488DA /* SideContainmentSegue.swift */; };
+		497063E41D38738900F9B35C /* SideMenuController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497063E31D38738900F9B35C /* SideMenuController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		13A758061D12A303004488DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
 		13A758071D12A303004488DA /* SideMenuControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuControllerTests.swift; path = Tests/SideMenuControllerTests.swift; sourceTree = SOURCE_ROOT; };
 		13A7586C1D12A61B004488DA /* SideContainmentSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideContainmentSegue.swift; path = Source/SideContainmentSegue.swift; sourceTree = SOURCE_ROOT; };
+		497063E31D38738900F9B35C /* SideMenuController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SideMenuController+Extension.swift"; path = "Source/SideMenuController+Extension.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				134E94E01D159C4B001C1F7D /* UIKitExtensions.swift */,
 				13A7586B1D12A5E9004488DA /* Segues */,
 				13A758021D12A2F5004488DA /* SideMenuController.swift */,
+				497063E31D38738900F9B35C /* SideMenuController+Extension.swift */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13A758051D12A2F5004488DA /* SideMenuController.swift in Sources */,
+				497063E41D38738900F9B35C /* SideMenuController+Extension.swift in Sources */,
 				134E94E11D159C4B001C1F7D /* TransitionAnimator.swift in Sources */,
 				13A7586D1D12A61B004488DA /* SideContainmentSegue.swift in Sources */,
 				134E94E21D159C4B001C1F7D /* UIKitExtensions.swift in Sources */,
