@@ -171,7 +171,8 @@ public class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
         public struct Drawing {
             public var menuButtonImage: UIImage?
             public var sidePanelPosition = SidePanelPosition.UnderCenterPanel
-            public var sidePanelWidth: CGFloat = 300
+            public var leftSidePanelWidth: CGFloat = 300
+            public var rightSidePanelWidth: CGFloat = 300
             public var centerPanelOverlayColor = UIColor(hue:0.15, saturation:0.21, brightness:0.17, alpha:0.6)
             public var centerPanelShadow = false
         }
@@ -272,7 +273,7 @@ public class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
         
         if sidePanelPosition.isPositionedUnder && sidePanelVisible != .None {
             
-            let sidePanelWidth = _preferences.drawing.sidePanelWidth
+            let sidePanelWidth = _preferences.drawing.leftSidePanelWidth
             return CGRectMake(sidePanelWidth, 0, screenSize.width, screenSize.height)
             
         } else {
@@ -283,7 +284,7 @@ public class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
     public var leftSidePanelFrame: CGRect {
         var sidePanelFrame: CGRect
         
-        let panelWidth = _preferences.drawing.sidePanelWidth
+        let panelWidth = _preferences.drawing.leftSidePanelWidth
         
         if sidePanelPosition.isPositionedUnder {
             sidePanelFrame = CGRectMake(0, 0, panelWidth, screenSize.height)
@@ -301,7 +302,7 @@ public class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
     public var rightSidePanelFrame: CGRect {
         var sidePanelFrame: CGRect
         
-        let panelWidth = _preferences.drawing.sidePanelWidth
+        let panelWidth = _preferences.drawing.rightSidePanelWidth
         
         if sidePanelPosition.isPositionedUnder {
             sidePanelFrame = CGRectMake(screenSize.width - panelWidth, 0, panelWidth, screenSize.height)
