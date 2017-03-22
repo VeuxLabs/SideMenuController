@@ -23,11 +23,11 @@
 
 import Foundation
 
-public class CenterContainmentSegue: UIStoryboardSegue{
+open class CenterContainmentSegue: UIStoryboardSegue{
     
-    override public func perform() {
-        if let sideController = self.sourceViewController as? SideMenuController {
-            guard let destinationController = destinationViewController as? UINavigationController else {
+    override open func perform() {
+        if let sideController = self.source as? SideMenuController {
+            guard let destinationController = destination as? UINavigationController else {
                 fatalError("Destination controller needs to be an instance of UINavigationController")
             }
             sideController.embed(centerViewController: destinationController)

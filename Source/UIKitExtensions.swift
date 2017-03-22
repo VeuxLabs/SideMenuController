@@ -24,10 +24,10 @@
 import Foundation
 
 extension UIView {
-    class func panelAnimation(duration : NSTimeInterval, animations : (()->()), completion : (()->())? = nil) {
-        UIView.animateWithDuration(duration, animations: animations) { _ -> Void in
+    class func panelAnimation(_ duration : TimeInterval, animations : @escaping (()->()), completion : (()->())? = nil) {
+        UIView.animate(withDuration: duration, animations: animations, completion: { _ -> Void in
             completion?()
-        }
+        }) 
     }
 }
 
@@ -41,26 +41,26 @@ public extension UINavigationController {
             return
         }
         
-        let leftButton = UIButton(frame: CGRectMake(0, 0, 40, 40))
+        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         leftButton.accessibilityIdentifier = SideMenuController.preferences.interaction.menuButtonAccessibilityIdentifier
-        leftButton.setImage(image, forState: UIControlState.Normal)
-        leftButton.addTarget(sideMenuController, action: #selector(SideMenuController.toggleLeft), forControlEvents: UIControlEvents.TouchUpInside)
+        leftButton.setImage(image, for: UIControlState())
+        leftButton.addTarget(sideMenuController, action: #selector(SideMenuController.toggleLeft), for: UIControlEvents.touchUpInside)
         
         let leftItem:UIBarButtonItem = UIBarButtonItem()
         leftItem.customView = leftButton
         
-        let leftSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
+        let leftSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
         leftSpacer.width = -10
         
-        let rightButton = UIButton(frame: CGRectMake(0, 0, 40, 40))
+        let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         rightButton.accessibilityIdentifier = SideMenuController.preferences.interaction.menuButtonAccessibilityIdentifier
-        rightButton.setImage(image, forState: UIControlState.Normal)
-        rightButton.addTarget(sideMenuController, action: #selector(SideMenuController.toggleRight), forControlEvents: UIControlEvents.TouchUpInside)
+        rightButton.setImage(image, for: UIControlState())
+        rightButton.addTarget(sideMenuController, action: #selector(SideMenuController.toggleRight), for: UIControlEvents.touchUpInside)
         
         let rightItem:UIBarButtonItem = UIBarButtonItem()
         rightItem.customView = rightButton
         
-        let rightSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
+        let rightSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
         rightSpacer.width = -10
         
         self.topViewController?.navigationItem.leftBarButtonItems = [leftSpacer, leftItem]
@@ -74,13 +74,13 @@ public extension UIViewController {
         return sideMenuControllerForViewController(self)
     }
     
-    private func sideMenuControllerForViewController(controller : UIViewController) -> SideMenuController?
+    fileprivate func sideMenuControllerForViewController(_ controller : UIViewController) -> SideMenuController?
     {
         if let sideController = controller as? SideMenuController {
             return sideController
         }
         
-        if let parent = controller.parentViewController {
+        if let parent = controller.parent {
             return sideMenuControllerForViewController(parent)
         } else {
             return nil
