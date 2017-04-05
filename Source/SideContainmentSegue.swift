@@ -23,9 +23,9 @@
 
 import Foundation
 
-public class SideContainmentSegue: UIStoryboardSegue{
+open class SideContainmentSegue: UIStoryboardSegue{
     
-    override public func perform() {
+    override open func perform() {
         fatalError("You must override this perform segue to make it work through storyboards.")
         //        if let sideController = self.sourceViewController as? SideMenuController {
         //            sideController.embed(leftSideViewController: destinationViewController)
