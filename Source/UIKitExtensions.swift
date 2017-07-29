@@ -45,7 +45,8 @@ public extension UINavigationController {
         leftButton.accessibilityIdentifier = SideMenuController.preferences.interaction.menuButtonAccessibilityIdentifier
         leftButton.setImage(image, for: UIControlState())
         leftButton.addTarget(sideMenuController, action: #selector(SideMenuController.toggleLeft), for: UIControlEvents.touchUpInside)
-        
+        leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);
+
         let leftItem:UIBarButtonItem = UIBarButtonItem()
         leftItem.customView = leftButton
         
