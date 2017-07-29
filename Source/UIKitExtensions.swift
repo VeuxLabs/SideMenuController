@@ -50,7 +50,6 @@ public extension UINavigationController {
         leftItem.customView = leftButton
         
         let leftSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
-        leftSpacer.width = -10
         
         let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         rightButton.accessibilityIdentifier = SideMenuController.preferences.interaction.menuButtonAccessibilityIdentifier
@@ -61,7 +60,6 @@ public extension UINavigationController {
         rightItem.customView = rightButton
         
         let rightSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
-        rightSpacer.width = -10
         
         self.topViewController?.navigationItem.leftBarButtonItems = [leftSpacer, leftItem]
         self.topViewController?.navigationItem.rightBarButtonItems = [rightSpacer, rightItem]
