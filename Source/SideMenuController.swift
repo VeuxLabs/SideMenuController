@@ -61,7 +61,7 @@ public extension SideMenuController {
      
      - parameter sideViewController: controller to be embedded
      */
-    public func embed(leftViewController: UIViewController, rightViewController: UIViewController) {
+    @objc public func embed(leftViewController: UIViewController, rightViewController: UIViewController) {
         if leftSideViewController == nil {
             
             leftSideViewController = leftViewController
@@ -93,7 +93,7 @@ public extension SideMenuController {
      
      - parameter centerViewController: controller to be embedded
      */
-    public func embed(centerViewController controller: UIViewController) {
+    @objc public func embed(centerViewController controller: UIViewController) {
         
         addChildViewController(controller)
         if let controller = controller as? UINavigationController {
@@ -215,8 +215,8 @@ open class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
     open var centerNavController: UINavigationController? {
         return centerViewController as? UINavigationController
     }
-    open var leftSideViewController: UIViewController!
-    open var rightSideViewController: UIViewController!
+    @objc open var leftSideViewController: UIViewController!
+    @objc open var rightSideViewController: UIViewController!
     open var statusBarUnderlay: UIView!
     open var centerPanel: UIView!
     open var leftSidePanel: UIView!
